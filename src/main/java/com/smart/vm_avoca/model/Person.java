@@ -1,6 +1,6 @@
-package com.smart.employeemanger.model;
+package com.smart.vm_avoca.model;
 
-import com.smart.employeemanger.model.Enum.Gender;
+import com.smart.vm_avoca.model.Enum.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,7 +26,6 @@ public class Person implements Serializable {
     private String email;
     private String phone;
     private String address;
-    private String pictureUrl;
     @Column(nullable = false, updatable = false)
     private String personCode;
 }

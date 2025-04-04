@@ -1,15 +1,15 @@
-package com.smart.employeemanger.Controller;
+package com.smart.vm_avoca.Controller;
 
-import com.smart.employeemanger.model.Employee;
-import com.smart.employeemanger.model.Person;
-import com.smart.employeemanger.service.EmployeeService;
-import com.smart.employeemanger.service.PersonService;
+import com.smart.vm_avoca.model.Person;
+import com.smart.vm_avoca.service.PersonService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/person")
@@ -43,15 +43,18 @@ public class PersonResource {
         return new ResponseEntity<>(updatePerson, HttpStatus.OK);
     }
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> deletePersonById(@PathVariable("id") Long id) {
+    public ResponseEntity<Map<String, String>> deletePersonById(@PathVariable("id") Long id) {
+        Map<String, String> response = new HashMap<>();
         try {
             personService.deletePerson(id);
-            return ResponseEntity.ok("Person with ID " + id + " was successfully deleted.");
+            response.put("message", "Person with ID " + id + " was successfully deleted.");
+            return ResponseEntity.ok(response);
         } catch (EntityNotFoundException e) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body("Person with ID " + id + " not found.");
+            response.put("error", "Person with ID " + id + " not found.");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
         }
     }
+
 
 
 }

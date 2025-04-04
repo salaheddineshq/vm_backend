@@ -1,7 +1,6 @@
-package com.smart.employeemanger.repo;
+package com.smart.vm_avoca.repo;
 
-import com.smart.employeemanger.model.Employee;
-import com.smart.employeemanger.model.Person;
+import com.smart.vm_avoca.model.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

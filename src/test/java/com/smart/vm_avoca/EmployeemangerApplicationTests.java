@@ -1,4 +1,4 @@
-package com.smart.employeemanger;
+package com.smart.vm_avoca;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

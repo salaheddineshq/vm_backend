@@ -1,6 +1,5 @@
-package com.smart.employeemanger.model;
+package com.smart.vm_avoca.model;
 
-import com.smart.employeemanger.model.Enum.Gender;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,20 +11,23 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Employee implements Serializable {
+public class Client implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID", nullable = false)
     private Long id;
+
+    private String NatureAffaire;
+    @Column(nullable = false, updatable = false)
+    private String ClientCode;
+
     @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "PERSON_ID", referencedColumnName = "ID", nullable = false)
     private Person person;
-    private String department;
-    private String jobTitle;
-    private Double salary;
-    @Column(nullable = false, updatable = false)
-    private String employeeCode;
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
+    @JoinColumn(name = "Dossier_ID", referencedColumnName = "ID", nullable = false)
+    private Dossier dossier;
 
 
 }

@@ -1,9 +1,9 @@
-package com.smart.employeemanger.service;
+package com.smart.vm_avoca.service;
 
 
-import com.smart.employeemanger.exception.UserNotFoundException;
-import com.smart.employeemanger.model.Person;
-import com.smart.employeemanger.repo.PersonRepo;
+import com.smart.vm_avoca.exception.UserNotFoundException;
+import com.smart.vm_avoca.model.Person;
+import com.smart.vm_avoca.repo.PersonRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
